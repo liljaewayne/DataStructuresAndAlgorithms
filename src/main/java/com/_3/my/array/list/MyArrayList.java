@@ -100,11 +100,15 @@ public class MyArrayList<T> implements Iterable<T> {
     }
 
     @Override
-    public Iterator<T> iterator() {
-        return new ArrayListIterator<T>();
+    public Iterator iterator() {
+        return new ArrayListIterator();
     }
 
-    private class ArrayListIterator<T> implements Iterator<T> {
+    /**
+     * 因为这个内部类依赖于外部类, 所以是一个隐式泛型类
+     * TODO 测试显示泛型类, 应该也能正常使用
+     */
+    private class ArrayListIterator implements Iterator<T> {
         private int current = 0;
 
         @Override
