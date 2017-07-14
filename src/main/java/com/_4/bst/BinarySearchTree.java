@@ -37,6 +37,10 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         root = null;
     }
 
+    public boolean isEmpty() {
+        return root == null;
+    }
+
     public boolean contains(T t) {
         return contains(t, root);
     }
@@ -71,25 +75,30 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
 
     private boolean contains(T t, BinaryTreeNode<T> tree) {
         // TODO
+        return false;
     }
 
 
     private BinaryTreeNode<T> findMin(BinaryTreeNode<T> tree) {
         // TODO
+        return null;
     }
 
 
     private BinaryTreeNode<T> findMax(BinaryTreeNode<T> tree) {
         // TODO
+        return null;
     }
 
 
     private BinaryTreeNode<T> insert(T t, BinaryTreeNode<T> tree) {
         // TODO
+        return null;
     }
 
     private BinaryTreeNode<T> remove(T t, BinaryTreeNode<T> tree) {
         // TODO: 2017/7/14 0014
+        return null;
     }
 
     private void printTree(BinaryTreeNode tree) {
