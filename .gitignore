@@ -28,7 +28,6 @@ build/classes/main/com/interview/zulong/CircularQueue.class
 build/classes/main/com/interview/zulong/CircularQueue$1.class
 build/classes/main/com/dynamic/programming/Example2.class
 build/classes/main/com/dynamic/programming/Example1.class
-build.gradle
 .idea/workspace.xml
 .idea/vcs.xml
 .idea/modules.xml
@@ -46,4 +45,10 @@ build/tmp/jar/MANIFEST.MF
 algorithms.iml
 .idea/modules/algorithms_test.iml
 .idea/modules/algorithms_main.iml
+
+DataStructuresAndAlgorithms.iml
+DataStructuresAndAlgorithms_main.iml
+DataStructuresAndAlgorithms_test.iml
+Gradle__junit_junit_4_12.xml
+Gradle__org_apache_commons_commons_lang3_3_6.xml
 
