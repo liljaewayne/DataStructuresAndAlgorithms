@@ -46,3 +46,9 @@ algorithms.iml
 .idea/modules/algorithms_test.iml
 .idea/modules/algorithms_main.iml
 
+DataStructuresAndAlgorithms.iml
+DataStructuresAndAlgorithms_main.iml
+DataStructuresAndAlgorithms_test.iml
+Gradle__junit_junit_4_12.xml
+Gradle__org_apache_commons_commons_lang3_3_6.xml
+
