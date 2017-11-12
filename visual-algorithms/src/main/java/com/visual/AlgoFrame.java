@@ -17,7 +17,7 @@ public class AlgoFrame extends JFrame {
 //        setSize(canvasWidth, canvasHeight);
 
         // frame不能绘制, 只能在画布上绘制
-        AlgoPanel canvas = new AlgoPanel();
+        AlgoCanvas canvas = new AlgoCanvas();
 
 //        canvas.setPreferredSize/*首选的*/(new Dimension/*面积*/(canvasWidth, canvasHeight));
 
@@ -41,14 +41,24 @@ public class AlgoFrame extends JFrame {
         return canvasHeight;
     }
 
-
-    private class AlgoPanel extends JPanel {
+    private class AlgoCanvas extends JPanel {
         @Override
         public void paintComponent(Graphics g) {
             super.paintComponent(g);
-
             // 屏幕坐标系, 左上角为原点, y轴向下
-            g.drawOval/*椭圆形*/(50, 50, 300, 300);
+//            g.drawOval/*椭圆形*/(50, 50, 300, 300);
+
+            // 使用g2d代替g
+            Graphics2D g2D = (Graphics2D) g;
+
+            // 具体绘制
+//            Ellipse2D cycle = new Ellipse2D.Double(50, 50, 300, 300);
+
+            AlgoVisHelper.setStrokeWidth(g2D, 5);// 设置笔画宽度为10
+            AlgoVisHelper.setColor(g2D, Color.BLUE);// 设置颜色
+            AlgoVisHelper.fillCycle(g2D, canvasWidth / 2, canvasHeight / 2, 200);// 实心圆
+            AlgoVisHelper.setColor(g2D, Color.RED);
+            AlgoVisHelper.strokeCycle(g2D, canvasWidth / 2, canvasHeight / 2, 200);// 空心圆
         }
 
         /**
