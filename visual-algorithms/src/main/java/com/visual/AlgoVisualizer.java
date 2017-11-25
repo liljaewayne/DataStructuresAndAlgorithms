@@ -70,6 +70,10 @@ public class AlgoVisualizer {
     private class AlgoMouseListener extends MouseAdapter {
         @Override
         public void mousePressed(MouseEvent event) {
+            System.out.println("frame.getBounds().height: " + frame.getBounds().height
+                    + " | frame.getBounds().width: " + frame.getBounds().width
+                    + " | frame.getCanvasHeight(): " + frame.getCanvasHeight()
+                    + " | frame.getCanvasWidth(): " + frame.getCanvasWidth());
             System.out.println("origin point (contains menu bar): " + event.getPoint());
 
             // 处理menu bar的高度影响的y轴坐标
@@ -78,7 +82,7 @@ public class AlgoVisualizer {
                     -(frame.getBounds().height - frame.getCanvasHeight())
             );
 
-            System.out.println("translate point: " + event.getPoint());
+            System.out.println("translate point: " + event.getPoint() + "\n");
 
             for (Circle circle : circles) {
                 if (circle.contain(event.getPoint())) {
