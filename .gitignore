@@ -42,13 +42,12 @@ build/classes/main/com/leetcode/a1/Solution.class
 out/production/algorithms/com/leetcode/a238/Solution.class
 build/tmp/jar/MANIFEST.MF
 .idea/uiDesigner.xml
-algorithms.iml
-.idea/modules/algorithms_test.iml
-.idea/modules/algorithms_main.iml
-
-DataStructuresAndAlgorithms.iml
-DataStructuresAndAlgorithms_main.iml
-DataStructuresAndAlgorithms_test.iml
 Gradle__junit_junit_4_12.xml
 Gradle__org_apache_commons_commons_lang3_3_6.xml
 
+visualizationAlgorithm.iml
+visualizationAlgorithm_main.iml
+visualizationAlgorithm_test.iml
+
+workspaces-DataStructuresAndAlgorithms_main.iml
+workspaces-DataStructuresAndAlgorithms_test.iml
