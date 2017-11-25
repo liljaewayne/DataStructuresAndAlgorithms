@@ -1,6 +1,8 @@
 package com.visual;
 
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 /**
  * 控制器
@@ -9,6 +11,9 @@ public class AlgoVisualizer {
 
     private Circle[] circles;   // 数据
     private AlgoFrame frame;    // 视图
+
+    private boolean animated = true;
+
 
     public AlgoVisualizer(int sceneWidth, int sceneHeight, int N) {
 
@@ -26,6 +31,10 @@ public class AlgoVisualizer {
         // 初始化视图
         EventQueue.invokeLater(() -> {
             frame = new AlgoFrame("Welcome", sceneWidth, sceneHeight);
+
+            // 添加监听器！实现键盘交互
+            frame.addKeyListener(new AlgoKeyListener());
+
             new Thread(() -> {
                 run();
             }).start();
@@ -40,9 +49,26 @@ public class AlgoVisualizer {
             frame.render(circles);
             AlgoVisHelper.pause(20);
 
-            // 更新数据
-            for (Circle circle : circles) {
-                circle.move(0, 0, frame.getCanvasWidth(), frame.getCanvasHeight());
+
+            if (animated) {
+                // 更新数据
+                for (Circle circle : circles) {
+                    circle.move(0, 0, frame.getCanvasWidth(), frame.getCanvasHeight());
+                }
+            }
+
+        }
+    }
+
+    /**
+     * 监听器， 用来监听键盘响应事件， 让程序可交互
+     */
+    private class AlgoKeyListener extends KeyAdapter /* 适配器模式 */ {
+
+        @Override
+        public void keyReleased(KeyEvent event) {
+            if (event.getKeyChar() == ' ') {
+                animated = !animated;
             }
         }
     }
