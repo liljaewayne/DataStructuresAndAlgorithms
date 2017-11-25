@@ -42,6 +42,12 @@ public class AlgoFrame extends JFrame {
     }
 
     private class AlgoCanvas extends JPanel {
+
+        public AlgoCanvas() {
+            super(true);// 是否支持双缓存
+            // 这也是默认的JPanel的构造函数
+        }
+
         @Override
         public void paintComponent(Graphics g) {
             super.paintComponent(g);
@@ -49,16 +55,29 @@ public class AlgoFrame extends JFrame {
 //            g.drawOval/*椭圆形*/(50, 50, 300, 300);
 
             // 使用g2d代替g
-            Graphics2D g2D = (Graphics2D) g;
+            Graphics2D g2d = (Graphics2D) g;
+
+            // 抗锯齿, 框架已经提供
+            RenderingHints hints = new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            g2d.addRenderingHints(hints);
+
+            // 双缓存, 在JPanel的构造函数中就默认支持
 
             // 具体绘制
 //            Ellipse2D cycle = new Ellipse2D.Double(50, 50, 300, 300);
 
-            AlgoVisHelper.setStrokeWidth(g2D, 5);// 设置笔画宽度为10
-            AlgoVisHelper.setColor(g2D, Color.BLUE);// 设置颜色
-            AlgoVisHelper.fillCycle(g2D, canvasWidth / 2, canvasHeight / 2, 200);// 实心圆
-            AlgoVisHelper.setColor(g2D, Color.RED);
-            AlgoVisHelper.strokeCycle(g2D, canvasWidth / 2, canvasHeight / 2, 200);// 空心圆
+//            AlgoVisHelper.setStrokeWidth(g2D, 5);// 设置笔画宽度为10
+//            AlgoVisHelper.setColor(g2D, Color.BLUE);// 设置颜色
+//            AlgoVisHelper.fillCycle(g2D, canvasWidth / 2, canvasHeight / 2, 200);// 实心圆
+//            AlgoVisHelper.setColor(g2D, Color.RED);
+//            AlgoVisHelper.strokeCycle(g2D, canvasWidth / 2, canvasHeight / 2, 200);// 空心圆
+
+
+            AlgoVisHelper.setStrokeWidth(g2d, 1);
+            AlgoVisHelper.setColor(g2d, Color.RED);
+            for (Circle circle : circles) {
+                AlgoVisHelper.strokeCircle(g2d, circle.x, circle.y, circle.getR());
+            }
         }
 
         /**
@@ -71,5 +90,17 @@ public class AlgoFrame extends JFrame {
         public Dimension getPreferredSize() {
             return new Dimension(canvasWidth, canvasHeight);
         }
+
     }
+
+    private Circle[] circles;
+
+    public void render(Circle[] circles) {
+        this.circles = circles;
+
+        // JPanel的方法, 将JFrame中所有的控件刷新一遍
+        repaint();
+    }
+
+
 }

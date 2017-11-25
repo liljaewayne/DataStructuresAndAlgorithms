@@ -19,7 +19,7 @@ public class AlgoVisHelper {
      * @param y
      * @param r
      */
-    public static void strokeCycle(Graphics2D g2d, int x, int y, int r) {
+    public static void strokeCircle(Graphics2D g2d, int x, int y, int r) {
         Ellipse2D cycle = new Ellipse2D.Double(x - r, y - r, 2 * r, 2 * r);
         g2d.draw(cycle);
     }
@@ -42,5 +42,13 @@ public class AlgoVisHelper {
         java中的图形绘制是基于状态的(大多数图形库都是这样的), setColor就是状态变了, 接下来写的都是在这个状态的
          */
         g2d.setColor(color);
+    }
+
+    public static void pause(int t) {
+        try {
+            Thread.sleep(t);
+        } catch (InterruptedException e) {
+            System.out.println("Error sleeping");
+        }
     }
 }
