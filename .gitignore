@@ -32,13 +32,8 @@ build/classes/main/com/leetcode/domain/TreeNode.class
 build/classes/main/com/leetcode/a1/Solution.class
 out/production/algorithms/com/leetcode/a238/Solution.class
 build/tmp/jar/MANIFEST.MF
+
+.idea/
 .idea/*
 Gradle__junit_junit_4_12.xml
 Gradle__org_apache_commons_commons_lang3_3_6.xml
-
-visualizationAlgorithm.iml
-visualizationAlgorithm_main.iml
-visualizationAlgorithm_test.iml
-
-workspaces-DataStructuresAndAlgorithms_main.iml
-workspaces-DataStructuresAndAlgorithms_test.iml
