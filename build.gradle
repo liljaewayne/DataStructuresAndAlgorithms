@@ -1,4 +1,4 @@
-group 'com.leetcode'
+group 'com.algorithm'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'maven'
