@@ -25,6 +25,9 @@ public class AlgoFrame extends JFrame {
 //        canvas.setPreferredSize/*首选的*/(new Dimension/*面积*/(canvasWidth, canvasHeight));
 
         setContentPane(canvas);
+
+        // 在确保系统也不会修改我们窗口的大小后进行pack， 这样就解决了windows下窗口坐标不对应的问题
+        setResizable(false);
         pack/*压缩,拧紧*/();
 
         setResizable(false);
