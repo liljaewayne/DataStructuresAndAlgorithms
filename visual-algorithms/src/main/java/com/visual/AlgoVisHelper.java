@@ -35,7 +35,7 @@ public class AlgoVisHelper {
      * @param y
      * @param r
      */
-    public static void fillCycle(Graphics2D g2d, int x, int y, int r) {
+    public static void fillCircle(Graphics2D g2d, int x, int y, int r) {
         Ellipse2D cycle = new Ellipse2D.Double(x - r, y - r, 2 * r, 2 * r);
         g2d.fill(cycle);
     }
