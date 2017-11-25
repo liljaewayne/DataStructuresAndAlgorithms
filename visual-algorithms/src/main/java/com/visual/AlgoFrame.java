@@ -71,15 +71,20 @@ public class AlgoFrame extends JFrame {
 
 //            AlgoVisHelper.setStrokeWidth(g2D, 5);// 设置笔画宽度为10
 //            AlgoVisHelper.setColor(g2D, Color.BLUE);// 设置颜色
-//            AlgoVisHelper.fillCycle(g2D, canvasWidth / 2, canvasHeight / 2, 200);// 实心圆
+//            AlgoVisHelper.fillCircle(g2D, canvasWidth / 2, canvasHeight / 2, 200);// 实心圆
 //            AlgoVisHelper.setColor(g2D, Color.RED);
 //            AlgoVisHelper.strokeCycle(g2D, canvasWidth / 2, canvasHeight / 2, 200);// 空心圆
 
 
             AlgoVisHelper.setStrokeWidth(g2d, 1);
             AlgoVisHelper.setColor(g2d, Color.RED);
+
             for (Circle circle : circles) {
-                AlgoVisHelper.strokeCircle(g2d, circle.x, circle.y, circle.getR());
+                if (circle.filled) {
+                    AlgoVisHelper.fillCircle(g2d, circle.x, circle.y, circle.getR());
+                } else {
+                    AlgoVisHelper.strokeCircle(g2d, circle.x, circle.y, circle.getR());
+                }
             }
         }
 

@@ -1,5 +1,7 @@
 package com.visual;
 
+import java.awt.*;
+
 /**
  * 模型
  */
@@ -13,6 +15,8 @@ public class Circle {
 
     // 速度
     public int vx, vy;
+
+    public boolean filled = false;
 
     public Circle(int x, int y, int r, int vx, int vy) {
         this.x = x;
@@ -52,6 +56,11 @@ public class Circle {
             y = maxy - r;
             vy = -vy;
         }
+    }
+
+    // 检测点是否在圆内
+    public boolean contain(Point p){
+        return (x - p.x) * (x - p.x) + (y - p.y) * (y - p.y) <= r * r;
     }
 
 }

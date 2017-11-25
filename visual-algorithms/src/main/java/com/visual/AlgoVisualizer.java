@@ -3,6 +3,8 @@ package com.visual;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 /**
  * 控制器
@@ -32,8 +34,10 @@ public class AlgoVisualizer {
         EventQueue.invokeLater(() -> {
             frame = new AlgoFrame("Welcome", sceneWidth, sceneHeight);
 
-            // 添加监听器！实现键盘交互
+
+            // 添加监听器！实现 键盘/鼠标 交互
             frame.addKeyListener(new AlgoKeyListener());
+            frame.addMouseListener(new AlgoMouseListener());
 
             new Thread(() -> {
                 run();
@@ -54,6 +58,31 @@ public class AlgoVisualizer {
                 // 更新数据
                 for (Circle circle : circles) {
                     circle.move(0, 0, frame.getCanvasWidth(), frame.getCanvasHeight());
+                }
+            }
+
+        }
+    }
+
+    /**
+     * 监听器， 用来监听鼠标响应事件
+     */
+    private class AlgoMouseListener extends MouseAdapter {
+        @Override
+        public void mousePressed(MouseEvent event) {
+            System.out.println("origin point (contains menu bar): " + event.getPoint());
+
+            // 处理menu bar的高度影响的y轴坐标
+            event.translatePoint(
+                    0,
+                    -(frame.getBounds().height - frame.getCanvasHeight())
+            );
+
+            System.out.println("translate point: " + event.getPoint());
+
+            for (Circle circle : circles) {
+                if (circle.contain(event.getPoint())) {
+                    circle.filled = !circle.filled;
                 }
             }
 
