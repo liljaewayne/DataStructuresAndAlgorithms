@@ -3,6 +3,9 @@ package com.visual;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 
+/**
+ * 工具类
+ */
 public class AlgoVisHelper {
     private AlgoVisHelper() {
     }

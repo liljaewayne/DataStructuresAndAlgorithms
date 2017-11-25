@@ -1,5 +1,8 @@
 package com.visual;
 
+/**
+ * 模型
+ */
 public class Circle {
 
     // 圆心距离原点的位置

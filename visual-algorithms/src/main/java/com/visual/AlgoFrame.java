@@ -3,6 +3,9 @@ package com.visual;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * 视图
+ */
 public class AlgoFrame extends JFrame {
 
     private int canvasWidth;
