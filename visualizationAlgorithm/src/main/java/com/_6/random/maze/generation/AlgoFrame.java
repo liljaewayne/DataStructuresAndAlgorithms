@@ -5,12 +5,12 @@ import com.template.AlgoVisHelper;
 import javax.swing.*;
 import java.awt.*;
 
-public class AlgoFrame extends JFrame{
+public class AlgoFrame extends JFrame {
 
     private int canvasWidth;
     private int canvasHeight;
 
-    public AlgoFrame(String title, int canvasWidth, int canvasHeight){
+    public AlgoFrame(String title, int canvasWidth, int canvasHeight) {
 
         super(title);
 
@@ -27,24 +27,30 @@ public class AlgoFrame extends JFrame{
         setVisible(true);
     }
 
-    public AlgoFrame(String title){
+    public AlgoFrame(String title) {
 
         this(title, 1024, 768);
     }
 
-    public int getCanvasWidth(){return canvasWidth;}
-    public int getCanvasHeight(){return canvasHeight;}
+    public int getCanvasWidth() {
+        return canvasWidth;
+    }
+
+    public int getCanvasHeight() {
+        return canvasHeight;
+    }
 
     // data
     private MazeData data;
-    public void render(MazeData data){
+
+    public void render(MazeData data) {
         this.data = data;
         repaint();
     }
 
-    private class AlgoCanvas extends JPanel{
+    private class AlgoCanvas extends JPanel {
 
-        public AlgoCanvas(){
+        public AlgoCanvas() {
             // 双缓存
             super(true);
         }
@@ -53,7 +59,7 @@ public class AlgoFrame extends JFrame{
         public void paintComponent(Graphics g) {
             super.paintComponent(g);
 
-            Graphics2D g2d = (Graphics2D)g;
+            Graphics2D g2d = (Graphics2D) g;
 
             // 抗锯齿
             RenderingHints hints = new RenderingHints(
@@ -63,21 +69,21 @@ public class AlgoFrame extends JFrame{
             g2d.addRenderingHints(hints);
 
             // 具体绘制
-            int w = canvasWidth/data.M();
-            int h = canvasHeight/data.N();
+            int w = canvasWidth / data.M();
+            int h = canvasHeight / data.N();
 
-            for(int i = 0 ; i < data.N() ; i ++ )
-                for(int j = 0 ; j < data.M() ; j ++){
+            for (int i = 0; i < data.N(); i++)
+                for (int j = 0; j < data.M(); j++) {
 
-                    if(data.inMist[i][j])
+                    if (data.inMist[i][j])
                         AlgoVisHelper.setColor(g2d, AlgoVisHelper.Black);
-                    else{
-                        if(data.maze[i][j] == MazeData.WALL)
+                    else {
+                        if (data.maze[i][j] == MazeData.WALL)
                             AlgoVisHelper.setColor(g2d, AlgoVisHelper.LightBlue);
                         else
                             AlgoVisHelper.setColor(g2d, AlgoVisHelper.White);
 
-                        if(data.path[i][j])
+                        if (data.path[i][j])
                             AlgoVisHelper.setColor(g2d, AlgoVisHelper.Yellow);
                     }
 
@@ -86,7 +92,7 @@ public class AlgoFrame extends JFrame{
         }
 
         @Override
-        public Dimension getPreferredSize(){
+        public Dimension getPreferredSize() {
             return new Dimension(canvasWidth, canvasHeight);
         }
     }
