@@ -2,9 +2,8 @@ package com.template;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.geom.*;
-
-import java.lang.InterruptedException;
+import java.awt.geom.Ellipse2D;
+import java.awt.geom.Rectangle2D;
 
 public class AlgoVisHelper {
 
@@ -74,9 +73,11 @@ public class AlgoVisHelper {
         }
     }
 
-    public static void putImage(Graphics2D g, int x, int y, String imageURL) {
 
-        ImageIcon icon = new ImageIcon(imageURL);
+    public static void putImage(Graphics2D g, int x, int y, String fileName) {
+        ImageIcon icon = new ImageIcon(
+                AlgoVisHelper.class.getClassLoader().getResource("img/" + fileName)
+        );
         Image image = icon.getImage();
 
         g.drawImage(image, x, y, null);
