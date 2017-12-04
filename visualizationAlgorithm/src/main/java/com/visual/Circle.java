@@ -59,7 +59,7 @@ public class Circle {
     }
 
     // 检测点是否在圆内
-    public boolean contain(Point p){
+    public boolean contain(Point p) {
         return (x - p.x) * (x - p.x) + (y - p.y) * (y - p.y) <= r * r;
     }
 
